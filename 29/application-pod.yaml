@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: application
+  labels:
+    app: application
+spec:
+  containers:
+  - name: application
+    image: kubernetesway/service:v1
+    ports:
+    - containerPort: 8080
