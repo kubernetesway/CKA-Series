@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-a
+  labels:
+    app: pod-a
+spec:
+  containers:
+  - name: pod-a
+    image: kubernetesway/web:v1
+    ports:
+    - containerPort: 80

@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: db-pod
+  labels:
+    app: db-pod
+spec:
+  containers:
+  - name: db-pod
+    image: mysql:5.7  # You can specify a different MySQL version if needed
+    ports:
+    - containerPort: 3306
+    env:
+    - name: MYSQL_ROOT_PASSWORD
+      value: "YourStrong@Passw0rd"  # Replace with your root password
+    - name: MYSQL_DATABASE
+      value: "exampledb"  # Replace with your desired database name
+    - name: MYSQL_USER
+      value: "user"
+    - name: MYSQL_PASSWORD
+      value: "userpassword"  # Replace with your desired user password
+    resources:
+      limits:
+        memory: "512Mi"
+        cpu: "500m"
