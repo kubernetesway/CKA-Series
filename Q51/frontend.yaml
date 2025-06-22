@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-checker
+  namespace: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: checker
+          image:  kubernetesway/mysql-connection-checker
+          env:
+            - name: MYSQL_HOST
+              value: mysql-service.backend.svc.cluster.local
+            - name: MYSQL_PORT
+              value: '3306'
+
